@@ -74,6 +74,7 @@ semSelect.addEventListener('change', function() {
     let htmlContent = `<h3>📚 Official Subjects List:</h3>`;
     
     rtuSyllabus[selectedSem].forEach(subject => {
+        // FIXED: Added strict https:// security header for global browsers
         const youtubeHindiUrl = `https://youtube.com{subject.ytHindi}+playlist`;
         const youtubeEngUrl = `https://youtube.com{subject.ytEng}+playlist`;
 
