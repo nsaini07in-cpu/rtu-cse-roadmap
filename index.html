@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTU Kota CSE Smart Roadmap</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 RTU Kota: CSE Smart Roadmap</h1>
+        <p class="subtitle">Complete 4-Year Syllabus Tracker & Study Resources</p>
+        
+        <!-- Dropdown Menu for all 8 Semesters -->
+        <select id="semSelect">
+            <option value="">-- Choose Semester --</option>
+            <option value="sem1">Semester 1 (1st Year)</option>
+            <option value="sem2">Semester 2 (1st Year)</option>
+            <option value="sem3">Semester 3 (2nd Year)</option>
+            <option value="sem4">Semester 4 (2nd Year)</option>
+            <option value="sem5">Semester 5 (3rd Year)</option>
+            <option value="sem6">Semester 6 (3rd Year)</option>
+            <option value="sem7">Semester 7 (4th Year)</option>
+            <option value="sem8">Semester 8 (4th Year)</option>
+        </select>
+
+        <!-- Dynamic Progress Tracker -->
+        <div id="progressContainer" style="display: none;">
+            <div class="progress-text">Semester Completion: <span id="progressPercent">0%</span></div>
+            <div class="progress-bar-bg">
+                <div id="progressBar" class="progress-bar-fill"></div>
+            </div>
+        </div>
+
+        <!-- Syllabus Content Area -->
+        <div id="syllabusArea" class="syllabus-card">
+            <p class="placeholder-text">Please select a semester to unlock your RTU curriculum roadmap.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
