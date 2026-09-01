@@ -66,31 +66,29 @@ semSelect.addEventListener('change', function() {
 
     if (selectedSem === "" || !rtuSyllabus[selectedSem]) {
         progressContainer.style.display = "none";
-        syllabusArea.innerHTML = `<p class="placeholder-text">Please select a semester to unlock your RTU curriculum roadmap.</p>`;
+        syllabusArea.innerHTML = "<p class='placeholder-text'>Please select a semester to unlock your RTU curriculum roadmap.</p>";
         return;
     }
 
     progressContainer.style.display = "block";
-    let htmlContent = `<h3>📚 Official Subjects List:</h3>`;
+    let htmlContent = "<h3>📚 Official Subjects List:</h3>";
     
-    rtuSyllabus[selectedSem].forEach(subject => {
-        // FIXED: Added strict https:// security header for global browsers
-        const youtubeHindiUrl = `https://youtube.com{subject.ytHindi}+playlist`;
-        const youtubeEngUrl = `https://youtube.com{subject.ytEng}+playlist`;
+    rtuSyllabus[selectedSem].forEach(function(subject) {
+        // FIXED: Using standard String Concatenation (+) to remove any Backtick syntax errors
+        var youtubeHindiUrl = "https://youtube.com" + subject.ytHindi + "+playlist";
+        var youtubeEngUrl = "https://youtube.com" + subject.ytEng + "+playlist";
 
-        htmlContent += `
-            <div class="subject-card">
-                <div class="subject-header">
-                    <input type="checkbox" class="task-check"> 
-                    <span><strong>(${subject.code})</strong> ${subject.name}</span>
-                </div>
-                <div class="resource-buttons">
-                    <a href="${youtubeHindiUrl}" target="_blank" class="btn btn-hindi">📺 Hindi Lectures 🇮🇳</a>
-                    <a href="${youtubeEngUrl}" target="_blank" class="btn btn-english">📺 English Lectures 🇬🇧</a>
-                    <a href="#" class="btn btn-notes">📄 Free Notes</a>
-                </div>
-            </div>
-        `;
+        htmlContent += "<div class='subject-card'>";
+        htmlContent += "<div class='subject-header'>";
+        htmlContent += "<input type='checkbox' class='task-check'>"; 
+        htmlContent += "<span><strong>(" + subject.code + ")</strong> " + subject.name + "</span>";
+        htmlContent += "</div>";
+        htmlContent += "<div class='resource-buttons'>";
+        htmlContent += "<a href='" + youtubeHindiUrl + "' target='_blank' class='btn btn-hindi'>📺 Hindi Lectures 🇮🇳</a>";
+        htmlContent += "<a href='" + youtubeEngUrl + "' target='_blank' class='btn btn-english'>📺 English Lectures 🇬🇧</a>";
+        htmlContent += "<a href='#' class='btn btn-notes'>📄 Free Notes</a>";
+        htmlContent += "</div>";
+        htmlContent += "</div>";
     });
 
     syllabusArea.innerHTML = htmlContent;
